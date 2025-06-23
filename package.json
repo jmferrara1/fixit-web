@@ -1,0 +1,35 @@
+{
+  "name": "fixit-web",
+  "version": "1.0.0",
+  "description": "AI-powered DIY home repair platform (Next.js + OpenAI Codex)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest",
+    "e2e": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "next": "^15.3.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0",
+    "playwright": "^1.40.0",
+    "tailwindcss": "^3.4.4",
+    "postcss": "^8.5.6",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^15.3.4"
+  }
+}
