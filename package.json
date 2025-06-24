@@ -8,9 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest",
-    "postinstall": "npx playwright install --with-deps",
-    "test:e2e": "playwright test"
+
   },
   "keywords": [],
   "author": "",
