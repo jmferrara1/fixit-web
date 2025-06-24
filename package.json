@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-
+    "test:e2e": "echo \"\u26A0\uFE0F E2E tests skipped until network is restored\""
   },
   "keywords": [],
   "author": "",
