@@ -4,11 +4,12 @@
   "description": "AI-powered DIY home repair platform (Next.js + OpenAI Codex)",
   "main": "index.js",
   "scripts": {
+    "postinstall": "bash scripts/vendor-deps.sh",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest",
+    "test": "vitest --exclude \"tests/e2e/**\"",
     "e2e": "playwright test"
   },
   "keywords": [],
