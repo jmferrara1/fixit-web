@@ -3,7 +3,7 @@ import { readDB, writeDB } from "../../../lib/db";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.status(405).end();
-  const { planId, skillLevel, zip } = JSON.parse(req.body || "{}");
+  const { planId } = JSON.parse(req.body || "{}");
   const db = await readDB();
   const transcript = db.chatMessages
     .filter(m => m.planId === planId)
