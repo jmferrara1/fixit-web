@@ -1,0 +1,7 @@
+{
+  "name": "playwright",
+  "version": "0.0.0-stub",
+  "bin": {
+    "playwright": "./bin/playwright.js"
+  }
+}

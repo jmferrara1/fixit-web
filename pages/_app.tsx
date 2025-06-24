@@ -1,12 +1,29 @@
 import type { AppProps } from 'next/app';
+import { SessionProvider } from 'next-auth/react';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import * as Sentry from '@sentry/nextjs';
 import Navbar from '../components/Navbar';
+import { CartProvider } from '../context/CartContext';
 import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  useEffect(() => {
+    Sentry.init({ dsn: process.env.SENTRY_DSN });
+    const handle = () => Sentry.captureException(new Error('pageview'));
+    router.events.on('routeChangeComplete', handle);
+    return () => {
+      router.events.off('routeChangeComplete', handle);
+    };
+  }, [router.events]);
+
   return (
-    <>
-      <Navbar />
-      <Component {...pageProps} />
-    </>
+    <SessionProvider session={(pageProps as any).session}>
+      <CartProvider>
+        <Navbar />
+        <Component {...pageProps} />
+      </CartProvider>
+    </SessionProvider>
   );
 }
