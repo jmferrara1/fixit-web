@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
+    "postinstall": "npx playwright install --with-deps",
     "test:e2e": "playwright test"
   },
   "keywords": [],
@@ -25,6 +26,7 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.53.1",
     "@vitejs/plugin-react": "^4.6.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^8.0.0",
