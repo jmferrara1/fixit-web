@@ -9,7 +9,7 @@
     "prebuild": "bash scripts/vendor-deps.sh",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint"
   },
   "keywords": [],
   "author": "",
