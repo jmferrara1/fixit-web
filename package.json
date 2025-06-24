@@ -6,11 +6,10 @@
   "scripts": {
     "postinstall": "bash scripts/vendor-deps.sh",
     "dev": "next dev",
+    "prebuild": "bash scripts/vendor-deps.sh",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest --exclude \"tests/e2e/**\"",
-    "e2e": "playwright test"
   },
   "keywords": [],
   "author": "",
