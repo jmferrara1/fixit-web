@@ -1,8 +1,6 @@
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import * as Sentry from '@sentry/nextjs';
+
 import Navbar from '../components/Navbar';
 import { CartProvider } from '../context/CartContext';
 import '../styles/globals.css';

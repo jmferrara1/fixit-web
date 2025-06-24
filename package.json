@@ -4,16 +4,12 @@
   "description": "AI-powered DIY home repair platform (Next.js + OpenAI Codex)",
   "main": "index.js",
   "scripts": {
-    "prelint": "bash scripts/vendor-deps.sh",
     "postinstall": "bash scripts/vendor-deps.sh",
     "dev": "next dev",
     "prebuild": "bash scripts/vendor-deps.sh",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pretest": "bash scripts/vendor-deps.sh",
-    "test": "vitest --exclude \"tests/e2e/**\"",
-    "e2e": "bash scripts/vendor-deps.sh && playwright test"
   },
   "keywords": [],
   "author": "",
@@ -24,13 +20,11 @@
     "@types/react": "^18.2.0",
     "next": "^15.3.4",
     "next-auth": "^4.24.11",
-    "nodemailer": "^6.10.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.53.1",
     "autoprefixer": "^10.4.21",
     "eslint": "^8.0.0",
     "eslint-config-next": "^15.3.4",

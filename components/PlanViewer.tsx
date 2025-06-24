@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Spinner from './Spinner';
@@ -31,7 +30,6 @@ interface PlanResponse {
 export default function PlanViewer({ planId }: { planId: string }) {
   const [data, setData] = useState<PlanResponse | null>(null);
   const { addItem } = useCart();
-  const { data: session } = useSession();
 
   useEffect(() => {
     async function load() {
@@ -50,15 +48,6 @@ export default function PlanViewer({ planId }: { planId: string }) {
         <Spinner />
       </div>
     );
-
-  const requestChat = async () => {
-    await fetch('/api/pros/requestChat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ planId }),
-    });
-    alert('Expert chat requested');
-  };
 
   return (
     <div className="space-y-6">
@@ -113,14 +102,6 @@ export default function PlanViewer({ planId }: { planId: string }) {
             </li>
           ))}
         </ul>
-        {session?.user && (session.user as any).isPro && (
-          <button
-            className="mt-4 px-4 py-2 bg-electric-orange text-white rounded hover:bg-orange-600 focus:ring-2 focus:ring-electric-orange"
-            onClick={requestChat}
-          >
-            Chat with Expert
-          </button>
-        )}
       </div>
     </div>
   );

@@ -17,19 +17,6 @@ export const authOptions: NextAuthOptions = {
   ],
   session: { strategy: 'jwt' },
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.isPro = (user as any).isPro;
-        token.isAdmin = (user as any).isAdmin;
-      }
-      return token;
-    },
-    session({ session, token }) {
-      if (session.user) {
-        (session.user as any).id = token.sub;
-        (session.user as any).isPro = (token as any).isPro;
-        (session.user as any).isAdmin = (token as any).isAdmin;
-      }
       return session;
     },
   },
