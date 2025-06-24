@@ -1,7 +1,0 @@
-{
-  "name": "vitest",
-  "version": "0.0.0-stub",
-  "bin": {
-    "vitest": "./bin/vitest.js"
-  }
-}
