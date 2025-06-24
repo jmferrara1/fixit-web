@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Spinner from './Spinner';
+import { useCart } from '../context/CartContext';
 
 interface Step {
   id: string;
@@ -27,6 +29,7 @@ interface PlanResponse {
 
 export default function PlanViewer({ planId }: { planId: string }) {
   const [data, setData] = useState<PlanResponse | null>(null);
+  const { addItem } = useCart();
 
   useEffect(() => {
     async function load() {
@@ -39,7 +42,12 @@ export default function PlanViewer({ planId }: { planId: string }) {
     if (planId) load();
   }, [planId]);
 
-  if (!data) return <div>Loading plan...</div>;
+  if (!data)
+    return (
+      <div className="flex items-center justify-center p-4">
+        <Spinner />
+      </div>
+    );
 
   return (
     <div className="space-y-6">
@@ -72,11 +80,25 @@ export default function PlanViewer({ planId }: { planId: string }) {
         <h2 className="text-2xl font-bold mb-4">Parts</h2>
         <ul className="list-disc list-inside space-y-2">
           {data.parts.map(part => (
-            <li key={part.id}>
-              {part.name} x{part.quantity} {' '}
-              <Link href={part.affiliateUrl} target="_blank">
+            <li key={part.id} className="flex items-center gap-2">
+              <span>
+                {part.name} x{part.quantity}
+              </span>
+              <Link
+                href={part.affiliateUrl}
+                target="_blank"
+                className="text-blue-600 hover:underline"
+              >
                 Buy at {part.partner}
               </Link>
+              <button
+                className="px-2 py-1 bg-steel-blue text-white rounded hover:bg-blue-700 focus:ring-2 focus:ring-steel-blue"
+                onClick={() =>
+                  addItem({ id: part.id, name: part.name, price: 1, sku: part.id, quantity: 1 })
+                }
+              >
+                Add to cart
+              </button>
             </li>
           ))}
         </ul>

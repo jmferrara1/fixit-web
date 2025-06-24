@@ -9,7 +9,7 @@ export default function SignIn({ providers }: { providers: any }) {
         Object.values(providers).map((provider: any) => (
           <div key={provider.name}>
             <button
-              className="px-4 py-2 bg-blue-600 text-white rounded"
+              className="px-4 py-2 bg-steel-blue text-white rounded hover:bg-blue-700 focus:ring-2 focus:ring-steel-blue disabled:opacity-50"
               onClick={() => signIn(provider.id)}
             >
               Sign in with {provider.name}

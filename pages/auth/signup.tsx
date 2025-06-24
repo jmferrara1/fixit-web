@@ -19,7 +19,10 @@ export default function SignUp() {
         placeholder="Email"
         required
       />
-      <button className="px-4 py-2 bg-blue-600 text-white rounded" type="submit">
+      <button
+        className="px-4 py-2 bg-steel-blue text-white rounded hover:bg-blue-700 focus:ring-2 focus:ring-steel-blue disabled:opacity-50"
+        type="submit"
+      >
         Sign up / Sign in
       </button>
     </form>

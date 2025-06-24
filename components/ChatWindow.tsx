@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Spinner from "./Spinner";
 import { useSession, signIn } from "next-auth/react";
 
 export default function ChatWindow() {
@@ -31,7 +32,12 @@ export default function ChatWindow() {
     bottom.current?.scrollIntoView({ behavior: "smooth" });
   }, [msgs]);
 
-  if (status === "loading") return <div>Loading...</div>;
+  if (status === "loading")
+    return (
+      <div className="flex items-center justify-center p-4">
+        <Spinner />
+      </div>
+    );
   if (!session) return <div>Please sign in to chat.</div>;
 
   return (
