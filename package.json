@@ -4,12 +4,13 @@
   "description": "AI-powered DIY home repair platform (Next.js + OpenAI Codex)",
   "main": "index.js",
   "scripts": {
-    "postinstall": "bash scripts/vendor-deps.sh",
     "dev": "next dev",
-    "prebuild": "bash scripts/vendor-deps.sh",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:unit": "vitest --config=vite.config.ts",
+    "test:e2e": "playwright test",
+    "test": "npm run test:unit"
   },
   "keywords": [],
   "author": "",
@@ -25,12 +26,15 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.6.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^8.0.0",
     "eslint-config-next": "^15.3.4",
+    "jsdom": "^21.1.2",
     "playwright": "^1.40.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.4",
+    "vite": "^6.3.5",
     "vitest": "^1.0.0"
   }
 }
