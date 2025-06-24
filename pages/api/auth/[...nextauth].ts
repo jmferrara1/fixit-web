@@ -1,25 +1,9 @@
 import NextAuth, { type NextAuthOptions } from 'next-auth';
-import EmailProvider from 'next-auth/providers/email';
 
 export const authOptions: NextAuthOptions = {
-  providers: [
-    EmailProvider({
-      server: {
-        host: process.env.SMTP_HOST,
-        port: +(process.env.SMTP_PORT || 587),
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
-        },
-      },
-      from: process.env.SMTP_FROM,
-    }),
-  ],
+  // Auth disabled for minimal deploy
+  providers: [],
   session: { strategy: 'jwt' },
-  callbacks: {
-      return session;
-    },
-  },
   secret: process.env.NEXTAUTH_SECRET,
 };
 

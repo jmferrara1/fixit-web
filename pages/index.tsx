@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import ChatWindow from '../components/ChatWindow';
-import PhotoUploader from '../components/PhotoUploader';
 
 export default function Home() {
   return (
@@ -11,10 +9,7 @@ export default function Home() {
       </Head>
       <h1 className="text-4xl font-bold">Fixit Web</h1>
       <Link href="/dashboard" className="text-blue-500">Dashboard</Link>
-      <div className="w-full max-w-md h-96">
-        <ChatWindow />
-      </div>
-      <PhotoUploader />
+      {/* Advanced features disabled for minimal deploy */}
     </div>
   );
 }
